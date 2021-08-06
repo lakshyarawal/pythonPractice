@@ -1,5 +1,4 @@
 """ Is the Given Number a palindrome or not """
-import math
 val = int(input("Enter your value: "))
 
 
