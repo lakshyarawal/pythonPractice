@@ -21,11 +21,7 @@ def trailing_zeros_rev(n) -> int:
     rev_zero = 0
     k = 5
     while k <= n:
-        i = 1
-        while i <= n:
-            if i % k == 0:
-                rev_zero = rev_zero + 1
-            i = i+1
+        rev_zero = rev_zero + n//k
         k = k * 5
     return rev_zero
 
