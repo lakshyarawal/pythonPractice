@@ -39,7 +39,6 @@ def prime_factors(a) -> list:
     return prime_fact_list
 
 
-
 def main():
     val1 = int(input("Enter your value: "))
     a = prime_factors(val1)
