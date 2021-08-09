@@ -1,6 +1,7 @@
 """ Check if the number is prime """
 import math
-""" Naive Solution:  """
+""" Naive Solution: Similar to prime numbers check if prime and divide """
+""" Efficient Solution use sqrt and same logic as prime numbers"""
 
 
 def prime_factors(a) -> list:
@@ -38,20 +39,11 @@ def prime_factors(a) -> list:
     return prime_fact_list
 
 
-""" Efficient Solution: """
-
-
-def prime_factors_eff(a) -> list:
-    prime_fact_eff_list = []
-    return prime_fact_eff_list
-
 
 def main():
     val1 = int(input("Enter your value: "))
     a = prime_factors(val1)
-    b = prime_factors_eff(val1)
     print(a)
-    print(b)
 
 
 # Using the special variable
