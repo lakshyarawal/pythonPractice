@@ -1,7 +1,7 @@
 """ Iterative Power: Find x raised to the power y efficiently """
-import math
 
-""" Naive Solution:  """
+"""Solution: Use bitwise operators to convert power into binary. All powers can be written as the combination of 
+power of 2. 3^7 = 3^4 * 3^2 * 3^1. The AND operator checks for 1 Bit, Right Shift moves Bits to check from LSB to MSB"""
 
 
 def comp_power(a, b) -> int:
@@ -14,20 +14,11 @@ def comp_power(a, b) -> int:
     return power_result
 
 
-""" Efficient Solution: Divide the power into smaller factors by diving into 2 and then multiply  """
-
-
-def comp_power_eff(a, b) -> int:
-    return 0
-
-
 def main():
     val1 = int(input("Enter your value: "))
     val2 = int(input("Enter another value: "))
     ans = comp_power(val1, val2)
-    ans2 = comp_power_eff(val1, val2)
     print(ans)
-    print(ans2)
 
 
 # Using the special variable
