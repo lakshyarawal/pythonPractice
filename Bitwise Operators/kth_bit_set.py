@@ -1,7 +1,7 @@
-""" Iterative Power: Find x raised to the power y efficiently """
+""" Kth bit set: Find if Kth bit is set in the binary representation of the given decimal number """
 
-"""Solution: Use bitwise operators to convert power into binary. All powers can be written as the combination of 
-power of 2. 3^7 = 3^4 * 3^2 * 3^1. The AND operator checks for 1 Bit, Right Shift moves Bits to check from LSB to MSB"""
+"""Solution: Three Solutions using, power , left shift and right shift operator along with and operator. 
+   AND with only Kth bit set as 1 is implemented below"""
 
 
 def kth_bit_set(a, b) -> bool:
