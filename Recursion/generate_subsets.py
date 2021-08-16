@@ -1,6 +1,7 @@
 """ Generate Subsets: Given a string generate all subsets using recursion """
 
-"""Solution: Recursively make the string shorter until length is one, if two compare both and return value """
+"""Solution: Recursively make calls for string by including and not including character at index I, this will create 
+    all combinations in the form of a tree """
 
 
 def generate_subsets(a, final_str, index_int):
@@ -16,7 +17,6 @@ def main():
     curr = ""
     int_val = 0
     generate_subsets(val1, curr, int_val)
-
 
 
 # Using the special variable
