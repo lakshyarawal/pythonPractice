@@ -8,10 +8,10 @@ def prefix_sum(a, l, r) -> int:
     prefix_sum_arr = [0] * len(a)
     prefix_sum_arr[0] = a[0]
     for i in range(1, len(a)):
-        prefix_sum_arr[i] = prefix_sum_arr[i-1] + a[i]
+        prefix_sum_arr[i] = prefix_sum_arr[i - 1] + a[i]
     if l == 0:
         return prefix_sum_arr[r]
-    return prefix_sum_arr[r] - prefix_sum_arr[l-1]
+    return prefix_sum_arr[r] - prefix_sum_arr[l - 1]
 
 
 """ Variation: Find if the given array has an equilibrium point in the array, around which 
@@ -19,19 +19,16 @@ def prefix_sum(a, l, r) -> int:
 
 
 def eq_point(a) -> bool:
-    prefix_sum_arr = [0] * len(a)
-    prefix_sum_arr[0] = a[0]
+    sum_array = 0
     for i in range(len(a)):
-        prefix_sum_arr[i] = prefix_sum_arr[i-1] + a[i]
-    postfix_sum_arr = [0] * len(a)
-    postfix_sum_arr[0] = a[len(a)-1]
-    for i in range(1, len(a)):
-        postfix_sum_arr[i] = postfix_sum_arr[i - 1] + a[len(a) - 1 - i]
-    print(prefix_sum_arr)
-    print(postfix_sum_arr)
-    for i in range(len(a)-1):
-        if prefix_sum_arr[i-1] == postfix_sum_arr[i+1]:
+        sum_array += a[i]
+    l_sum = 0
+    for i in range(len(a)):
+        if l_sum == sum_array - a[i]:
+            print(i, l_sum, sum_array-a[i])
             return True
+        l_sum += a[i]
+        sum_array -= a[i]
     return False
 
 
