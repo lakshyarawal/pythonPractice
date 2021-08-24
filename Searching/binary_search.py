@@ -5,7 +5,7 @@
 
 
 def binary_search_iterative(arr, num) -> int:
-    high = len(arr)
+    high = len(arr) - 1
     low = 0
     while low <= high:
         mid = (low + high) // 2

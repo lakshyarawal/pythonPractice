@@ -1,18 +1,27 @@
 """ Given an integer find the square root of the number """
-from index_of_first_occurrence import first_occur
+
 """ Solution: """
 
 
-def count_occur(arr, num) -> int:
-    low_index = first_occur(arr, num)
-    if low_index == -1:
-        return 0
-    return len(arr) - low_index
+def square_root(num) -> int:
+    high = num
+    low = 1
+    ans = -1
+    while low <= high:
+        mid = (low + high) // 2
+        if mid * mid == num:
+            return mid
+        if mid * mid > num:
+            high = mid - 1
+        if mid * mid < num:
+            low = mid + 1
+            ans = mid
+    return ans
 
 
 def main():
-    arr_input = [0, 0, 0]
-    a2 = count_occur(arr_input, 1)
+    num_input = int(input("Enter a number here: "))
+    a2 = square_root(num_input)
     print(a2)
 
 
