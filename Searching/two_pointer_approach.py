@@ -1,43 +1,63 @@
-"""Finding peak element: In an unsorted array, find element which is not smaller than it's neighbours"""
-from binary_search import binary_search_iterative
+"""Two Pointer Approach: In an unsorted array we are given a number X, we have to find if there exists a pair
+    such that the sum of pair is equal to X. Eg: [3, 5, 9, 2, 8, 10, 11] X = 17, O/P: Pair (9,8)
+    Unsorted array can be solved using hashing, while sorted can be solved using two pointer approach
+    Approach: move two pointers from left and right and then compare with sum and move again"""
+
 """ Solution: """
 
 
-def peak_element(a) -> int:
+def two_pointer(a, num) -> tuple:
     n = len(a)
-    if n == 1:
-        return a[0]
-    if a[0] > a[1]:
-        return a[0]
-    if a[n-1] > a[n-2]:
-        return a[n-1]
-    for i in range(1, n-1):
-        if a[i] > a[i-1] and a[i] > a[i+1]:
-            return a[i]
-    return -1
+    for i in range(n):
+        for j in range(i+1, n):
+            if a[i] + a[j] == num:
+                return a[i], a[j]
+    return -1, -1
 
 
-def peak_element_eff(a) -> int:
+def two_pointer_eff(a, num) -> tuple:
     n = len(a)
-    low = 0
-    high = n-1
-    while low <= high:
-        mid = (low + high) // 2
-        if (mid == 0 or a[mid] >= a[mid-1]) and (mid == n-1 or a[mid] >= a[mid+1]):
-            return a[mid]
-        if mid > 0 and a[mid] < a[mid-1]:
-            high = mid - 1
+    left = 0
+    right = n-1
+    while left < right:
+        if a[left] + a[right] == num:
+            return a[left], a[right]
+        if a[left] + a[right] > num:
+            right = right - 1
         else:
-            low = mid + 1
-    return -1
+            left = left + 1
+    return -1, -1
+
+
+def two_pointer_triplet(a, num) -> tuple:
+    left = 0
+    right = 0
+    n = len(a)
+    i = 0
+    while i < n:
+        num = num - a[i]
+        n = len(a[i:])
+        left = 0
+        right = n-1
+        while left < right:
+            if a[left] + a[right] == num:
+                return a[left], a[right], a[i]
+            if a[left] + a[right] > num:
+                right = right - 1
+            else:
+                left = left + 1
+        i = i + 1
+    return a[left], a[right], a[i]
+
+
+""" Alternative question: Find if there is a triplet that satisfies the pythagorean theorem : a^2 + b^2 = c^2"""
 
 
 def main():
-    arr = [10, 20, 15, 5, 23, 90, 67]
-    a2 = peak_element_eff(arr)
-    print(a2)
-    a2 = peak_element(arr)
-    print(a2)
+    num_input = 32
+    arr = [2, 4, 8, 9, 10, 11, 12, 20, 30]
+    a1, a2, a3 = two_pointer_triplet(arr, num_input)
+    print(a1, a2, a3)
 
 
 # Using the special variable
