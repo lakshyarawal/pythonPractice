@@ -24,7 +24,7 @@ def selection_sort_eff(arr) -> list:
     for i in range(n-1):
         min_index = i
         for j in range(i+1, n):
-            if arr[j] < arr[i]:
+            if arr[j] < arr[min_index]:
                 min_index = j
         arr[i], arr[min_index] = arr[min_index],  arr[i]
     return arr
@@ -32,6 +32,8 @@ def selection_sort_eff(arr) -> list:
 
 def main():
     arr_input = [10, 5, 30, 1, 2, 5, 10, 10]
+    a2 = selection_sort_eff(arr_input)
+    print(a2)
     a2 = selection_sort(arr_input)
     print(a2)
 

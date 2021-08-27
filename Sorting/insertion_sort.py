@@ -4,23 +4,22 @@
 """Implementation"""
 
 
-def bubble_sort(arr) -> list:
+def insertion_sort(arr) -> list:
     n = len(arr)
-    for j in range(1, n):
-        swapped = True
-        for i in range(n-j):
-            if arr[i] > arr[i+1]:
-                arr[i], arr[i+1] = arr[i+1], arr[i]
-                swapped = False
-        if swapped:
-            break
-        print(arr)
+    for i in range(1, n):
+        swap_index = i
+        for j in range(i-1, -1, -1):
+            if arr[swap_index] < arr[j]:
+                arr[swap_index], arr[j] = arr[j], arr[swap_index]
+                swap_index -= 1
+            else:
+                break
     return arr
 
 
 def main():
     arr_input = [10, 5, 30, 1, 2, 5, 10, 10]
-    a2 = bubble_sort(arr_input)
+    a2 = insertion_sort(arr_input)
     print(a2)
 
 
