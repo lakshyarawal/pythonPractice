@@ -14,7 +14,6 @@ def lom_partition(arr, low, high) -> int:
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
     arr[i+1], arr[high] = arr[high], arr[i+1]
-    print(arr)
     return i + 1
 
 
