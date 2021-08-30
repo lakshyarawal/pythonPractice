@@ -21,20 +21,6 @@ def chocolate_distribution(arr, children) -> int:
     return min_difference
 
 
-def chocolate_distribution_eff(arr, children) -> int:
-    low = 0
-    high = len(arr) - 1
-    while low <= high:
-        p = lom_partition(arr, low, high)
-        if p == children - 1:
-            return arr[children - 1]
-        if p > children - 1:
-            high = p - 1
-        if p < children - 1:
-            low = p + 1
-    return -1
-
-
 def main():
     arr_input = [3, 4, 1, 9, 56, 7, 9, 12]
     print(arr_input)
