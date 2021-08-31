@@ -1,31 +1,33 @@
-""" Sort Array with three types of elements: You are given three types of elements in the array and you have to
-    sort them accordingly"""
-
+""" Minimum Difference between elements: given an array we have to find the minimum difference between two elements
+    among all the elements in the array"""
+import sys
+from quick_sort import quick_sort_hoare
 
 """Solution"""
 
 
-def segregate_elements_three(arr) -> list:
-    i = 0
-    j = len(arr)-1
-    mid = 0
-    while mid <= j:
-        if arr[mid] == 0:
-            arr[i], arr[mid] = arr[mid], arr[i]
-            i += 1
-            mid += 1
-        elif arr[mid] == 1:
-            mid += 1
-        else:
-            arr[mid], arr[j] = arr[j], arr[mid]
-            j -= 1
-    return arr
+def min_difference(arr) -> int:
+    min_diff = sys.maxsize
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            min_diff = min(min_diff, abs(arr[i] - arr[j]))
+    return min_diff
+
+
+def min_difference_eff(arr) -> int:
+    min_diff = sys.maxsize
+    quick_sort_hoare(arr, 0, len(arr)-1)
+    for i in range(len(arr)-1):
+        min_diff = min(min_diff, abs(arr[i+1]-arr[i]))
+    return min_diff
 
 
 def main():
-    arr_input = [0, 2, 1, 0, 0, 2, 1]
+    arr_input = [8, -1, 0, 3]
     print(arr_input)
-    a2 = segregate_elements_three(arr_input)
+    a2 = min_difference(arr_input)
+    print(a2)
+    a2 = min_difference_eff(arr_input)
     print(a2)
 
 
