@@ -25,7 +25,6 @@ def radix_sort(arr) -> list:
     exp = 1
     while max_ele//exp > 0:
         count_sort(arr, exp)
-        print(arr)
         exp *= 10
     return arr
 
