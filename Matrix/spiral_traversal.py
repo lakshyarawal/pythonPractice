@@ -4,31 +4,29 @@
 """Solution: """
 
 
-def spiral(arr, row_start, row_end, col_start, col_end):
-    n = len(arr)
-    i, j = 0, 0
-    while -1 < i < (row_end-row_start) and -1 < j < (col_end-col_start):
-        print(arr[i][j], end=" ")
-        if i == 1 and j == 0:
-            spiral(arr, 1, n-1, 1, n-1)
-            break
-        if i != 0 and j == 0:
-            i -= 1
-            continue
-        if i == len(arr) - 1:
-            j -= 1
-            continue
-        if j == len(arr[i]) - 1:
-            i += 1
-            continue
-        j += 1
+def spiral(arr):
+    top, left = 0, 0
+    bottom, right = len(arr) - 1, len(arr) - 1
+    while top <= bottom and left <= right:
+        for i in range(left, right+1):
+            print(arr[top][i], end=" ")
+        top += 1
+        for i in range(top, bottom+1):
+            print(arr[i][right], end=" ")
+        right -= 1
+        if top <= bottom:
+            for i in range(right, left-1, -1):
+                print(arr[bottom][i], end=" ")
+            bottom -= 1
+        if left <= right:
+            for i in range(bottom, top-1, -1):
+                print(arr[i][left], end=" ")
+            left += 1
 
 
 def main():
     arr_input = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
-    start = 0
-    end = len(arr_input)
-    spiral(arr_input, start, end, start, end)
+    spiral(arr_input)
 
 
 if __name__ == "__main__":
