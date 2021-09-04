@@ -28,8 +28,6 @@ def main():
     searching_element(dict_table)
 
 
-
-
 # Using the special variable
 # __name__
 if __name__ == "__main__":
