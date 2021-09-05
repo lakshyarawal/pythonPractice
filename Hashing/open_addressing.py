@@ -16,17 +16,17 @@ class my_hash:
             self.array[key] = element
             return self.array
         else:
-            change = (self.length - 1) - (element % (self.length - 1))
-            for i in range(1, change):
-                key = key + i * change
-                if self.array[key] == -1 or self.array[key] == -2:
-                    self.array[key] = element
+            i = key + 1
+            while i != key:
+                if self.array[i] == -1 or self.array[i] == -2:
+                    self.array[i] = element
                     return self.array
+                i = (i + 1) % self.length
             print("Array Full")
 
     def search(self, element):
         key = element % self.length
-        i = key
+        i = key + 0
         while self.array[i] != -1:
             if self.array[i] == element:
                 return True
@@ -36,10 +36,20 @@ class my_hash:
         return False
 
     def erase(self, element):
-        for i in range(self.length):
+        key = element % self.length
+        if self.array[key] == element:
+            self.array[key] = -2
+            return self.array
+        i = (key + 1) % self.length
+        while self.array[i] != -1:
             if self.array[i] == element:
                 self.array[i] = -2
                 return self.array
+            i = (i+1) % self.length
+            if i == key:
+                break
+        print("element not found")
+        return False
 
 
 def main():
@@ -49,7 +59,7 @@ def main():
     my_obj.insert(56)
     my_obj.insert(72)
     print(my_obj.array)
-    if my_obj.search(56):
+    if my_obj.search(49):
         print("yes")
     else:
         print("No")
