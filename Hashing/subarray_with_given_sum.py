@@ -1,5 +1,5 @@
 
-""" Sub array with 0 sum """
+""" Sub array with given sum """
 
 
 def find_sum_sub(arr, sum_in) -> bool:
@@ -13,6 +13,7 @@ def find_sum_sub(arr, sum_in) -> bool:
         # Adding the sum of all elements in the set, if there is a 0 sum, total sum will repeat itself
         new_set.add(sum_array)
     return False
+
 
 
 def main():
