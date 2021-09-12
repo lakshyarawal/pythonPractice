@@ -33,7 +33,7 @@ def insert_at_begin(l_list, new_head):
         l_list.head = new_head
         return
     temp = Node(l_list.head.data)
-    temp.next = llist.head.next
+    temp.next = l_list.head.next
     l_list.head = new_head
     new_head.next = temp
 
@@ -101,8 +101,7 @@ def search_elem(l_list, e_data):
     return -1
 
 
-if __name__ == '__main__':
-    # Start with the empty list
+def main():
     llist = LinkedList()
 
     llist.head = Node(10)
@@ -119,3 +118,8 @@ if __name__ == '__main__':
     insert_at_pos(llist, 3, 99)
     print(search_elem(llist, 100))
     llist.print_list()
+
+
+if __name__ == '__main__':
+    # Start with the empty list
+    main()
