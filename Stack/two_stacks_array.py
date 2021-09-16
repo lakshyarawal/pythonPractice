@@ -1,4 +1,4 @@
-""" Balanced Parentheses using Stack Data Structure """
+""" Class that implements 2 stacks in an array """
 
 
 class TwoStacks:
@@ -47,7 +47,7 @@ class TwoStacks:
 
 
 def main():
-    str_input = "((())"
+    two_obj = TwoStacks(6)
 
 
 # Using the special variable
