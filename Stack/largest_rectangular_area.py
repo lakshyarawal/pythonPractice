@@ -1,14 +1,29 @@
 """ Finding the Largest Rectangular Area in a histogram:  """
 
 
+""" Naive Approach here is that you should find the area with every element as the smallest bar"""
+
+
 def easy_area(arr_in):
-    res = arr_in[0]
+    res = 0
     for i in range(len(arr_in)):
-        res = max(res, arr_in[i])
-        min_el = arr_in[i]
-        for j in range(i+1, len(arr_in)):
-            min_el = min(min_el, arr_in[i], arr_in[j])
-            res = max(res, min_el*(j-i+1))
+        area = arr_in[i]
+        k = i - 1
+        while k >= 0:
+            if arr_in[k] >= arr_in[i]:
+                area += arr_in[i]
+            else:
+                break
+            k -= 1
+        j = i+1
+        while j < len(arr_in):
+            if arr_in[j] >= arr_in[i]:
+                area += arr_in[i]
+            else:
+                break
+            j += 1
+        print(arr_in[i], area)
+        res = max(res, area)
     return res
 
 
@@ -24,7 +39,6 @@ def rec_area(arr_in):
             curr = arr_in[tp]*i if len(stack) == 0 else arr_in[tp]*(i-stack[len(stack)-1]-1)
             res = max(res, curr)
         stack.append(i)
-    print(stack)
     while len(stack) > 0:
         tp = stack.pop()
         curr = arr_in[tp]*len(arr_in) if len(stack) == 0 else arr_in[tp]*(len(arr_in)-stack[len(stack)-1]-1)
