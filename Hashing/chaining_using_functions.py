@@ -9,7 +9,6 @@ def display_hash(hash_table):  # Function to display hashtable
         for j in hash_table[i]:
             print("-->", end=" ")
             print(j, end=" ")
-
         print()
 
 

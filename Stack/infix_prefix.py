@@ -10,13 +10,13 @@ def check_precedence(op):
     return -1
 
 
-def convert_post(str_input):
-    post_res = ""
+def convert_pre(str_input):
+    pres_res = ""
     operators = ['(', ')', '^', '*', '/', '+', '-']
     stack = []
-    for i in range(len(str_input)):
+    for i in range(len(str_input)-1, -1, -1):
         if str_input[i] not in operators:
-            post_res += str_input[i]
+            pres_res += str_input[i]
         else:
             if len(stack) == 0:
                 stack.append(str_input[i])
@@ -24,32 +24,34 @@ def convert_post(str_input):
                 pr = stack[len(stack) - 1]
                 a = check_precedence(pr)
                 b = check_precedence(str_input[i])
-                if str_input[i] == ')' or a == b:
+                if str_input[i] == '(' or a == b:
                     while len(stack) > 0:
                         m = stack.pop()
-                        if m == '(':
+                        if m == ')':
                             continue
-                        post_res += m
-                    if str_input[i] != ')':
+                        pres_res += m
+                    if str_input[i] != '(':
                         stack.append(str_input[i])
                     continue
                 # Check precedence form stack top
-                if b > a:
+                elif b > a:
                     stack.append(str_input[i])
                 else:
                     while len(stack) > 0:
+                        if check_precedence(stack[len(stack)-1]) == b:
+                            break
                         m = stack.pop()
-                        post_res += m
+                        pres_res += m
                     stack.append(str_input[i])
     while len(stack) > 0:
         m = stack.pop()
-        post_res += m
-    return post_res
+        pres_res += m
+    return pres_res[::-1]
 
 
 def main():
-    str_input = "a+b/c-d*e"
-    print(convert_post(str_input))
+    str_input = "x+y/z-w*u"
+    print(convert_pre(str_input))
 
 
 # Using the special variable
