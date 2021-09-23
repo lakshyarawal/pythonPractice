@@ -1,4 +1,4 @@
-""" Finding the Middle of the Linked List. If two middle are present return the second one """
+""" Finding the Middle of the LinkedList. If two middle are present return the second one """
 
 
 class Node:
@@ -22,48 +22,46 @@ class LinkedList:
         print("")
 
 
-"""Naive approach using 2 traversals"""
-
-
-def find_middle(l_list):
+def nth_node_end(l_list, n):
     if l_list.head is None:
         return
-    if l_list.head.next is None:
-        print(l_list.head.data)
-        return
     temp = l_list.head
-    i = 0
+    count_n = 0
     while temp:
-        i += 1
+        count_n += 1
         temp = temp.next
-    mid = i//2 + 1
-    n_temp = l_list.head
+    if count_n < n:
+        return
     j = 1
-    while j <= mid and n_temp:
-        if j == mid:
-            print("Middle Node: ", n_temp.data)
+    node_loc = count_n - n + 1
+    n_temp = l_list.head
+    while j <= node_loc and n_temp:
+        if j == node_loc:
+            print(n, "Node from end is: ", n_temp.data)
             return
-        j += 1
         n_temp = n_temp.next
+        j += 1
 
 
-""" Efficient Solution"""
+""" Efficient Solution using two pointers and giving one pointer lead by n """
 
 
-def find_middle_eff(l_list):
+def nth_node_eff(l_list, n):
     if l_list.head is None:
         return
-    if l_list.head.next is None:
-        print(l_list.head.data)
-        return
     temp = l_list.head
-    s_temp = l_list.head
-    while s_temp:
-        s_temp = s_temp.next
-        temp = temp.next.next
-        if temp is None or temp.next is None:
-            print("Middle Node: ", s_temp.data)
+    i = 1
+    while i < n:
+        if temp is None:
             return
+        temp = temp.next
+        i += 1
+    n_temp = l_list.head
+    while temp:
+        if temp.next is None:
+            print(n, "Node from the end is: ", n_temp.data)
+        n_temp = n_temp.next
+        temp = temp.next
 
 
 def main():
@@ -79,7 +77,8 @@ def main():
     third.next = fourth
 
     l_list.print_list()
-    find_middle_eff(l_list)
+    nth_node_end(l_list, 3)
+    nth_node_eff(l_list, 3)
 
 
 if __name__ == '__main__':

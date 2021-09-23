@@ -1,4 +1,4 @@
-""" Segregate Odd and Even Values in Linked List such that all even values appear first, maintaining original order """
+""" Segregate Odd and Even Values in LinkedList such that all even values appear first, maintaining original order """
 
 
 class Node:

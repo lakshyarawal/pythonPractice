@@ -1,4 +1,4 @@
-""" Circular Linked List: """
+""" Circular LinkedList: """
 
 
 class Node:

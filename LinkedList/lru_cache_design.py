@@ -1,4 +1,4 @@
-"""LRU Cache Design using Linked List: """
+"""LRU Cache Design using LinkedList: """
 
 
 class Node:

@@ -1,4 +1,4 @@
-""" Doubly Linked List Implementation: """
+""" Doubly LinkedList Implementation: """
 
 
 class Node:

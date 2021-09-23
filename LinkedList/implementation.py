@@ -1,4 +1,4 @@
-""" Implementation of Linked List"""
+""" Implementation of LinkedList"""
 
 
 class Node:

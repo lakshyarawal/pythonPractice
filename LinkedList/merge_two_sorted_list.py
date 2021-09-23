@@ -1,4 +1,4 @@
-""" Combine two sorted Linked List in place such that the result is also sorted """
+""" Combine two sorted LinkedList in place such that the result is also sorted """
 
 
 class Node:

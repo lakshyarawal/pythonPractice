@@ -1,4 +1,4 @@
-""" Basic Operations using Linked List and Node Classes """
+""" Basic Operations using LinkedList and Node Classes """
 
 
 class Node:

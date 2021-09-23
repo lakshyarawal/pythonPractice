@@ -1,5 +1,5 @@
 
-""" Collision handling using Chaining: Implementation of chaining using Linked List and chain creation"""
+""" Collision handling using Chaining: Implementation of chaining using LinkedList and chain creation"""
 
 
 def display_hash(hash_table):  # Function to display hashtable

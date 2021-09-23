@@ -1,5 +1,5 @@
 """ Stack is a data structure following LIFO: Last in First Out: which can be used in python in many ways.
-    Below is a representation using singly Linked List """
+    Below is a representation using singly LinkedList """
 
 
 class Node:

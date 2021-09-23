@@ -1,4 +1,4 @@
-""" Inserting an Element in a sorted Linked List so that the linked list remains sorted """
+""" Inserting an Element in a sorted LinkedList so that the linked list remains sorted """
 
 
 class Node:

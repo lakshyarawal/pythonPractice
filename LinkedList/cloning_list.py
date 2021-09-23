@@ -1,4 +1,4 @@
-"""Cloning a Linked List with random pointers: """
+"""Cloning a LinkedList with random pointers: """
 
 
 class Node:
