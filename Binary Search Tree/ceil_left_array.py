@@ -1,4 +1,4 @@
-""" Self Balancing trees """
+""" Self Balancing trees: Find the ceiling of the element in the left side of the array """
 from sortedcontainers import SortedSet
 
 
