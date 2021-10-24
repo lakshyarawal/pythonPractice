@@ -30,10 +30,19 @@ class Heap:
         return
 
     def extract_min(self):
+        if self.size == 0:
+            return
+        if self.size == 1:
+            a = self.arr[0]
+            self.arr[0] = 0
+            self.size -= 1
+            return a
+        a = self.arr[0]
         self.arr[0], self.arr[self.size-1] = self.arr[self.size-1], self.arr[0]
         self.arr[self.size-1] = 0
+        self.size -= 1
         self.heapify(0)
-        return
+        return a
 
 
 def main():
