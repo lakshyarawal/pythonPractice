@@ -22,9 +22,16 @@ class Heap:
 
 def main():
     h = Heap(10)
-    h.insert(10)
-    h.insert(50)
-    h.insert(5)
+    h.insert(40)
+    h.insert(20)
+    h.insert(30)
+    h.insert(35)
+    h.insert(80)
+    h.insert(32)
+    h.insert(100)
+    h.insert(70)
+    h.insert(60)
+    h.insert(25)
     print(h.arr)
 
 
