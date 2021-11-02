@@ -3,14 +3,11 @@ import heapq
 
 
 def k_closest(arr_in, x, k):
-    n_arr = arr_in.copy()
-    for i in range(len(arr_in)):
-        arr_in[i] = abs(arr_in[i]-x)
     o_arr = []
     for i in range(len(arr_in)):
-        heapq.heappush(o_arr, [arr_in[i], i])
+        heapq.heappush(o_arr, [abs(arr_in[i]-x), i])
     for i in range(k):
-        print(n_arr[heapq.heappop(o_arr)[1]], end=" ")
+        print(arr_in[heapq.heappop(o_arr)[1]], end=" ")
 
 
 def main():
